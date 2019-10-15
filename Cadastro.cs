@@ -1,12 +1,14 @@
 using System;
 
-class DadosFamilia 
+class Cadastro
 {
-  public static void Main (string[] args) 
+  //public static void Main (string[] args) 
   {
-    public int QtdMembros;
-    public int Menores18;
-    public int Maiores18;
-    public string DepDebilitado;    
+    public string CadNome;
+    public string CadIdade;
+    public string CadCargo;
+    public double CadSalario;
+    public int CadQtdFilhos;
+    public string CadConjuge;     
   }
 }
