@@ -1,10 +1,14 @@
 using System;
 
-class CalculoDesconto 
+class Pessoa 
 {
-  public static void Main (string[] args) 
+  //public static void Main (string[] args) 
   {
-    public double CalculaRenda;
-    public string MostraBeneficios;    
+    public string Nome;
+    public string Idade;
+    public string Cargo;
+    public double Salario;
+    public int QtdFilhos;
+    public string Conjuge;    
   }
 }
