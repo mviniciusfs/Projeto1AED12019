@@ -1,7 +1,7 @@
 using System;
 
 class Pessoa 
-{
+
   //public static void Main (string[] args) 
   {
     public string Nome;
@@ -17,6 +17,12 @@ class Pessoa
       Cargo = c;
       Salario = s;
       QtdFilhos = q;
+    }
+
+    public string Imprimir()
+    {
+      string dados = Nome + Idade + Cargo + Salario + QtdFilhos;
+
+      return dados;
     }    
   }
-}
