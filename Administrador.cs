@@ -1,32 +1,47 @@
 using System;
+using System.Collections.Generic;
 
 class Administrador
-{
+
   //public static void Main (string[] args) 
   {
-    public string CadNome;
-    public string CadIdade;
-    public string CadCargo;
-    public double CadSalario;
-    public int CadQtdFilhos;
-    
-    public Administrador(string nome, int idade, string cargo, double csalario, int cqtdfilhos)
+    public List<Pessoa>Pessoas;
+
+    public Administrador()
     {
-      CadNome = nome;
-      CadIdade = idade;
-      CadCargo = cargo;
-      CadSalario = csalario;
-      CadQtdFilhos = cqtdfilhos
+      Pessoas = new List<Pessoa>();                        
     }
 
-    
-    
+    public void AddPessoa(string nome, string cargo, int idade, int qtdFilhos, double salario)
+    {
+      Pessoa p1 = new Pessoa(nome, idade, cargo, salario, qtdFilhos);
+
+      Pessoas.Add(p1);
+
+    }
+
+    public List<Pessoa> getListaPessoa() 
+    {
+      return Pessoas;
+
+    }
+
+
+
+
+
+
 
     
 
-    
-    
+    public void Imprimir()
+    {
+      foreach(Pessoa pessoa in Pessoas)
+      {
+        Console.WriteLine(pessoa.Nome + pessoa.Cargo + pessoa.Idade + pessoa.Salario + pessoa.QtdFilhos);
+
+      }
+
       
-         
+    }        
   }
-}
