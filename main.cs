@@ -11,10 +11,10 @@ class MainClass
     Console.WriteLine("Cadastro Pessoa baixa renda");
     Console.WriteLine();
 
-    Console.Write("Deseja cadastrar uma nova pessoa? ");
+    Console.Write("Deseja cadastrar uma nova Pessoa? ");
     string cad = Console.ReadLine();
 
-    while(cad == "sim" || cad == "SIM")
+    while(cad == "SIM" || cad == "S")
     {
       Console.Write("Digite o Nome: ");
       string nome = Console.ReadLine();
@@ -48,15 +48,24 @@ class MainClass
       
       foreach(Pessoa pessoa in  Pessoas)
       {
-        x.WriteLine(pessoa.Imprimir());
+        x.WriteLine(pessoa.Imprimir());        
         
       }
 
-      
       x.Close();
-    }  
+
+    Console.Write("Deseja cadastrar uma nova Pessoa? ");
+    string cad2 = Console.ReadLine();
+
+    if(cad2 == "NAO" || cad2 == "N")
+    {
+      break;
+    }
 
 
+    }
+
+    
     Console.WriteLine(Controlador.ValidaBeneficio(adm.Pessoas[0]));
 
     Console.WriteLine(Controlador.ValidaBolsaF(adm.Pessoas[0]));
