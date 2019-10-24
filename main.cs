@@ -12,7 +12,7 @@ class MainClass
     Console.WriteLine();
 
     Console.Write("Deseja cadastrar uma nova Pessoa? ");
-    string cad = Console.ReadLine();
+    string cad = Console.ReadLine().ToUpper();
 
     while(cad == "SIM" || cad == "S")
     {
@@ -55,7 +55,7 @@ class MainClass
       x.Close();
 
     Console.Write("Deseja cadastrar uma nova Pessoa? ");
-    string cad2 = Console.ReadLine();
+    string cad2 = Console.ReadLine().ToUpper();
 
     if(cad2 == "NAO" || cad2 == "N")
     {
@@ -66,9 +66,25 @@ class MainClass
     }
 
     
-    Console.WriteLine(Controlador.ValidaBeneficio(adm.Pessoas[0]));
+    Console.WriteLine();
+    Console.WriteLine("Deseja verificar o resultado de beneficios? ");
+    string resultfinal = Console.ReadLine().ToUpper();
 
-    Console.WriteLine(Controlador.ValidaBolsaF(adm.Pessoas[0]));
+    if(resultfinal == "SIM" || resultfinal == "S")
+    {
+      Console.WriteLine(Controlador.ValidaBeneficio(adm.Pessoas[0]));
+      Console.WriteLine(Controlador.ValidaBolsaF(adm.Pessoas[0]));
+
+    }
+
+    else
+    {
+      Console.WriteLine();
+      Console.WriteLine("PROGRAMA FINALIZADO!");
+    }
+
+    
+
 
   }
 }
