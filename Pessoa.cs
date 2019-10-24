@@ -21,7 +21,7 @@ class Pessoa
 
     public string Imprimir()
     {
-      string dados = Nome + Idade + Cargo + Salario + QtdFilhos;
+      string dados = Nome +" "+ Idade +" "+ Cargo +" "+ Salario +" "+ QtdFilhos;
 
       return dados;
     }    
