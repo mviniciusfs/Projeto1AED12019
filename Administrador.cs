@@ -38,7 +38,7 @@ class Administrador
     {
       foreach(Pessoa pessoa in Pessoas)
       {
-        Console.WriteLine(pessoa.Nome + pessoa.Cargo + pessoa.Idade + pessoa.Salario + pessoa.QtdFilhos);
+        Console.WriteLine(pessoa.Nome+ " " + pessoa.Cargo + pessoa.Idade + pessoa.Salario + pessoa.QtdFilhos);
 
       }
 
