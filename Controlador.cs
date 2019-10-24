@@ -27,7 +27,7 @@ class Controlador
 
       else
       {
-        return "\nNão há beneficios disponíveis";
+        return "\nNão possui descontos no pagamento de água e energia elétrica.";
       }
         
     }
