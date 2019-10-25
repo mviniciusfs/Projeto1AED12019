@@ -14,6 +14,7 @@ class MainClass
     Console.Write("Deseja cadastrar uma nova Pessoa? ");
     string cad = Console.ReadLine().ToUpper();
 
+    //Leitura dos dados;
     while(cad == "SIM" || cad == "S")
     {
       Console.Write("Digite o Nome: ");
@@ -31,60 +32,87 @@ class MainClass
       Console.Write("Digite o Salário: ");
       double salario = double.Parse(Console.ReadLine());
 
-      
-      
-      adm.AddPessoa(nome, cargo, idade, qtdFilhos, salario);
-      //adm.Imprimir();
 
-      StreamWriter x;
+      //Validação para BENEFICIÁRIOS;
+      if(salario <= 1100)
+      {        
+        //Trabalhando com arquivo .txt
+        StreamWriter x;
+        string CaminhoNome = "dados.txt";
+        x = File.AppendText(CaminhoNome);
 
-      string CaminhoNome = "dados.txt";
+        //Salvando dados no arquivo;
+        adm.AddPessoa(nome, cargo, idade, qtdFilhos, salario);
+        List <Pessoa>Pessoas = adm.getListaPessoa();      
+        foreach(Pessoa pessoa in  Pessoas)
+        {
+          x.WriteLine(pessoa.Imprimir().ToUpper());        
+        }
 
-      x = File.AppendText(CaminhoNome);
+        x.Close();
 
-      //string aux = "";
+        Console.Write("Deseja cadastrar uma nova Pessoa? ");
+        string cad2 = Console.ReadLine().ToUpper();
 
-      List <Pessoa>Pessoas = adm.getListaPessoa();
-      
-      foreach(Pessoa pessoa in  Pessoas)
-      {
-        x.WriteLine(pessoa.Imprimir());        
-        
+        if(cad2 == "NAO" || cad2 == "N")
+        {
+          break;
+        }
       }
 
-      x.Close();
+      else if(salario > 100)
+      {
+        Console.WriteLine("**********ATENÇÃO*********");
+        Console.WriteLine("APENAS CADASTROS DE BAIXA RENDA - SALÁRIO ATÉ R$1100,00");
 
-    Console.Write("Deseja cadastrar uma nova Pessoa? ");
-    string cad2 = Console.ReadLine().ToUpper();
+        Console.WriteLine();
 
-    if(cad2 == "NAO" || cad2 == "N")
-    {
-      break;
-    }
+        Console.Write("Deseja cadastrar uma nova Pessoa? ");
+        string cad3 = Console.ReadLine().ToUpper();
 
-
+        if(cad3 == "NAO" || cad3 == "N")
+        {
+          break;
+        }
+      }
     }
 
     
+    
+    //Imprimir na tela os benefícios disponíveis;
     Console.WriteLine();
-    Console.WriteLine("Deseja verificar o resultado de beneficios? ");
+    Console.WriteLine("Deseja verificar o banco de beneficiários? ");
     string resultfinal = Console.ReadLine().ToUpper();
+    Console.WriteLine();
 
     if(resultfinal == "SIM" || resultfinal == "S")
     {
-      Console.WriteLine(Controlador.ValidaBeneficio(adm.Pessoas[0]));
-      Console.WriteLine(Controlador.ValidaBolsaF(adm.Pessoas[0]));
+      StreamReader y;
 
-    }
-
-    else
-    {
+      
       Console.WriteLine();
-      Console.WriteLine("PROGRAMA FINALIZADO!");
+      Console.WriteLine("DIRETOS Á: \nDesconto pagamento Saneamento Básico 10%\nDesconto pagamento de Energia 5%")
+      ;
+      Console.WriteLine();
+      Console.WriteLine("LISTA DE BENEFICIÁRIOS");
+      Console.WriteLine();
+
+      string Caminho = "dados.txt";
+
+      y = File.OpenText(Caminho);
+
+      while(y.EndOfStream != true)
+      {
+        string linha = y.ReadLine();
+        Console.WriteLine(linha);
+        
+      }    
+      y.Close();
+
+      Console.WriteLine();
+      Console.Write("********PROGRAMA FINALIZADO*********");
+      
     }
-
     
-
-
   }
 }
